@@ -65,3 +65,38 @@ function create() {
   fi  
   #python /Users/pulkitmahajan/Documents/Python/youtubeDownloader.py $1
 }
+
+function download() {
+
+  if [ -z "$2" ] #check if we have a second argument
+  then 
+    if [ -z "$1" ]
+      then #at this point we dont have anything 
+        echo "Enter URL: "
+        read url
+        echo "mp3 or mp4?"
+        read typeFile
+        echo " " $url " " $typeFile
+    else
+      echo "mp3 or mp4? "  #we have the url but not the type
+      read typeFile
+      url=$1
+      echo " " $url " " $typeFile
+    fi
+  else
+    url=$1
+    typeFile=$2
+    echo " " $url " " $typeFile  #we have a second arugment so assuming we have a first lmao 
+  fi
+  #python /Users/pulkitmahajan/Documents/Python/youtubeDownloader.py $url $typeFile
+  #need to check if downloading mp3 vs mp4
+  if [ $typeFile == "mp4" ] || [ $typeFile == "4" ]
+  then
+    cd /Users/pulkitmahajan/Documents/Videos
+    youtube-dl --embed-thumbnail -o '%(title)s.%(ext)s' -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' $url 
+    echo "Done"
+  else
+    cd /Users/pulkitmahajan/Documents/Videos/DownloadedMP3s
+    youtube-dl -o '%(title)s.%(ext)s' -x --embed-thumbnail --audio-format mp3  $url
+  fi 
+}
