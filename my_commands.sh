@@ -7,19 +7,20 @@ alias d='documents '
 alias doc='documents '
 alias Documents='documents '
 alias br="source ~/.bash_profile && clear && echo \"bash profile reloaded\" && pwd;" # reload profile config
+alias sshConfig="ssh_config"
 
 function cmds(){
-  echo "${bold} br ${normal} - reloads bash profile"
+  echo "${bold} br ${normal}        - reloads bash profile"
   echo "${bold} documents ${normal} - opens documents"
-  echo "${bold} doc ${normal} - opens documents"
-  echo "${bold} cl ${normal} - cd into folder, and shows ls"
-  echo "${bold} profile ${normal} - opens bash_profile in vscode"
-  echo "${bold} serve ${normal} - live reload server on default 8000 or port specified "
-  echo "${bold} website ${normal} - create website files with boilerplate, and serve on either 8000 or specified port "
-  echo "${bold} create ${normal} - walks through creation of new project"
-  echo "${bold} download ${normal} - download given url"
-  echo "${bold} cmds ${normal} - lists all cmds"
-   echo "${bold} ssh_config ${normal} - opens ssh_config"
+  echo "${bold} doc ${normal}       - opens documents"
+  echo "${bold} cl ${normal}        - cd into folder, and shows ls"
+  echo "${bold} profile ${normal}   - opens bash_profile in vscode"
+  echo "${bold} serve ${normal}     - live reload server on default 8000 or port specified "
+  echo "${bold} website ${normal}   - create website files with boilerplate, and ${bold}serve${normal} on either 8000 or specified port "
+  echo "${bold} create ${normal}    - walks through creation of new project"
+  echo "${bold} download ${normal}  - download given url"
+  echo "${bold} cmds ${normal}      - lists all cmds"
+  echo "${bold} ssh_config ${normal}- (or sshConfig) opens ssh_config"
 }
 
 function documents() {
