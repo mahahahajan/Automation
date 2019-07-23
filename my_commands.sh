@@ -1,5 +1,87 @@
 #!/bin/bash
-# prints the input
+
+bold=$(tput bold)
+normal=$(tput sgr0)
+
+alias d='documents '
+alias doc='documents '
+alias Documents='documents '
+alias br="source ~/.bash_profile && clear && echo \"bash profile reloaded\" && pwd;" # reload profile config
+
+function cmds(){
+  echo "${bold} br ${normal} - reloads bash profile"
+  echo "${bold} documents ${normal} - opens documents"
+  echo "${bold} doc ${normal} - opens documents"
+  echo "${bold} cl ${normal} - cd into folder, and shows ls"
+  echo "${bold} profile ${normal} - opens bash_profile in vscode"
+  echo "${bold} serve ${normal} - live reload server on default 8000 or port specified "
+  echo "${bold} website ${normal} - create website files with boilerplate, and serve on either 8000 or specified port "
+  echo "${bold} create ${normal} - walks through creation of new project"
+  echo "${bold} download ${normal} - download given url"
+  echo "${bold} cmds ${normal} - lists all cmds"
+   echo "${bold} ssh_config ${normal} - opens ssh_config"
+}
+
+function documents() {
+  cd
+  cd Documents
+}
+function cl(){
+  cd $1 
+  ls
+}
+
+function profile(){
+  code ~/.bash_profile
+}
+function ssh_config(){
+  code ~/.ssh/config
+}
+
+function serve(){
+  export LOCAL_IP=`ipconfig getifaddr en0`
+  if [ -z "$1" ]
+    then
+    browser-sync start -s -f . --no-notify --host $LOCAL_IP --port 8000 
+  else
+    browser-sync start -s -f . --no-notify --host $LOCAL_IP --port $1 
+  fi
+}
+function website() {
+  touch index.html
+  touch style.css
+  touch main.js
+  cat > index.html << 'EOF'
+  <!doctype html>
+  <html lang="en">
+    <head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="author" content="Pulkit Mahajan"/>
+      <meta name="copyright" content="Copyright (c) 2019 Pulkit Mahajan"/>
+      <meta name="description" content="Hello, world!">
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+      <link href="https://fonts.googleapis.com/css?family=Oxygen|Roboto|Rubik|Ubuntu|Source+Sans+Pro&display=swap" rel="stylesheet">
+      <title>Hello, world!</title>
+    </head>
+    <body>
+      <h1>Hello, world!</h1>
+
+      <!-- Optional JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+      <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    </body>
+  </html>
+EOF
+  code -n .
+  serve $1  
+}
 function new_folder () {
   echo "Enter folder name: "
   read newFolderName
