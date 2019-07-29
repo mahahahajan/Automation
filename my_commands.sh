@@ -5,9 +5,12 @@ normal=$(tput sgr0)
 
 alias d='documents '
 alias doc='documents '
-alias Documents='documents '
+alias Documents='documents '  
 alias br="source ~/.bash_profile && clear && echo \"bash profile reloaded\" && pwd;" # reload profile config
 alias sshConfig="ssh_config"
+alias internetTest="speedtest-cli"
+alias speed="speedtest-cli"
+alias itest="speedtest-cli"
 
 function cmds(){
   echo "${bold} br ${normal}        - reloads bash profile"
@@ -21,6 +24,7 @@ function cmds(){
   echo "${bold} download ${normal}  - download given url"
   echo "${bold} cmds ${normal}      - lists all cmds"
   echo "${bold} ssh_config ${normal}- (or sshConfig) opens ssh_config"
+  echo "${bold} speed ${normal}     - (or internetTest or itest) tests internet speed"
 }
 
 function documents() {
