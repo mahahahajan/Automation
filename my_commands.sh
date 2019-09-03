@@ -11,6 +11,7 @@ alias sshConfig="ssh_config"
 alias internetTest="speedtest-cli"
 alias speed="speedtest-cli"
 alias itest="speedtest-cli"
+alias k="ssh kamek"
 
 function cmds(){
   echo "${bold} br ${normal}        - reloads bash profile"
@@ -171,6 +172,7 @@ function download() {
       echo " " $url " " $typeFile
     fi
   else
+    
     url=$1
     typeFile=$2
     echo " " $url " " $typeFile  #we have a second arugment so assuming we have a first lmao 
