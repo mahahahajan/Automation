@@ -40,6 +40,7 @@ function br(){
     clear
     echo "bash profile reloaded"
     pwd
+  fi
 }
 
 function documents() {
