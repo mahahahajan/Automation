@@ -29,7 +29,7 @@ function cmds(){
 }
 
 function br(){
-  if [ $SHELL == "/bin/zsh" ]
+  if [[ $SHELL == "/bin/zsh" ]]
   then 
     source ~/.zshrc
     clear
