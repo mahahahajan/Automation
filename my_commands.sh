@@ -6,7 +6,7 @@ normal=$(tput sgr0)
 alias d='documents '
 alias doc='documents '
 alias Documents='documents '  
-alias br="source ~/.bash_profile && clear && echo \"bash profile reloaded\" && pwd;" # reload profile config
+
 alias sshConfig="ssh_config"
 alias internetTest="speedtest-cli"
 alias speed="speedtest-cli"
@@ -26,6 +26,20 @@ function cmds(){
   echo "${bold} cmds ${normal}      - lists all cmds"
   echo "${bold} ssh_config ${normal}- (or sshConfig) opens ssh_config"
   echo "${bold} speed ${normal}     - (or internetTest or itest) tests internet speed"
+}
+
+function br(){
+  if [ $SHELL == "/bin/zsh" ]
+  then 
+    source ~/.zshrc
+    clear
+    echo ".zshrc reloaded"
+    pwd
+  else
+    source ~/.bash_profile
+    clear
+    echo "bash profile reloaded"
+    pwd
 }
 
 function documents() {
