@@ -43,6 +43,27 @@ function br(){
   fi
 }
 
+function run(){
+  if [ -z "$1" ]
+  then
+    echo "is there a makefile"
+    read makeFileAns
+    if [ $makeFileAns == "yes" ] || [ $makeFileAns == "y" ]  || [ $makeFileAns == "Yes" ]
+    then
+      make
+      echo "Which file am I running? (Usually the tester file)"
+      ls
+      read fileAns 
+      ./$fileAns
+    fi
+    
+  else
+    make 
+    ./$1
+  fi
+
+}
+
 function documents() {
   cd
   cd Documents
