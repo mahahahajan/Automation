@@ -59,7 +59,7 @@ function run(){
     
   else
     make 
-    ./$1
+    ./$1 $2 $3
   fi
 
 }
