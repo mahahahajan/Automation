@@ -7,7 +7,7 @@ alias d='documents '
 alias doc='documents '
 alias Documents='documents '  
 
-alias sshConfig="ssh_config"
+alias sshConfig="servers"
 alias internetTest="speedtest-cli"
 alias speed="speedtest-cli"
 alias itest="speedtest-cli"
@@ -24,7 +24,7 @@ function cmds(){
   echo "${bold} create ${normal}    - walks through creation of new project"
   echo "${bold} download ${normal}  - download given url"
   echo "${bold} cmds ${normal}      - lists all cmds"
-  echo "${bold} ssh_config ${normal}- (or sshConfig) opens ssh_config"
+  echo "${bold} servers ${normal}- (or sshConfig) opens ssh_config"
   echo "${bold} speed ${normal}     - (or internetTest or itest) tests internet speed"
 }
 
@@ -76,7 +76,7 @@ function cl(){
 function profile(){
   code ~/.bash_profile
 }
-function ssh_config(){
+function servers(){
   code ~/.ssh/config
 }
 
@@ -106,7 +106,8 @@ function website() {
       <!-- Bootstrap CSS -->
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-      <link href="https://fonts.googleapis.com/css?family=Oxygen|Roboto|Rubik|Ubuntu|Source+Sans+Pro&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Oxygen+Mono&family=Oxygen:wght@300;400;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik+Mono+One&family=Rubik:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&family=Ubuntu+Condensed&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+      <link rel="stylesheet" type="text/css" href="style.css"> 
       <title>Hello, world!</title>
     </head>
     <body>
