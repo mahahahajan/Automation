@@ -12,19 +12,21 @@ alias internetTest="speedtest-cli"
 alias speed="speedtest-cli"
 alias itest="speedtest-cli"
 alias k="ssh kamek"
+alias m="ssh mario"
 
 function cmds(){
   echo "${bold} br ${normal}        - reloads bash profile"
-  echo "${bold} documents ${normal} - opens documents"
-  echo "${bold} doc ${normal}       - opens documents"
   echo "${bold} cl ${normal}        - cd into folder, and shows ls"
-  echo "${bold} profile ${normal}   - opens bash_profile in vscode"
-  echo "${bold} serve ${normal}     - live reload server on default 8000 or port specified "
-  echo "${bold} website ${normal}   - create website files with boilerplate, and ${bold}serve${normal} on either 8000 or specified port "
-  echo "${bold} create ${normal}    - walks through creation of new project"
-  echo "${bold} download ${normal}  - download given url"
   echo "${bold} cmds ${normal}      - lists all cmds"
-  echo "${bold} servers ${normal}- (or sshConfig) opens ssh_config"
+  echo "${bold} create ${normal}    - walks through creation of new project"
+  echo "${bold} doc ${normal}       - opens documents"
+  echo "${bold} documents ${normal} - opens documents"
+  echo "${bold} download ${normal}  - download given url"
+  echo "${bold} new ${normal}       - open my_commands in vscode"
+  echo "${bold} profile ${normal}    - opens bash_profile in vscode"
+  echo "${bold} website ${normal}   - create website files with boilerplate, and ${bold}serve${normal} on either 8000 or specified port "
+  echo "${bold} serve ${normal}     - live reload server on default 8000 or port specified "
+  echo "${bold} servers ${normal}   - (or sshConfig) opens ssh_config"
   echo "${bold} speed ${normal}     - (or internetTest or itest) tests internet speed"
 }
 
@@ -78,6 +80,9 @@ function profile(){
 }
 function servers(){
   code ~/.ssh/config
+}
+function new(){
+  code ~/Documents/Automation/Commands/my_commands.sh
 }
 
 function serve(){
@@ -135,7 +140,6 @@ function new_folder () {
   if [ $gitAns == "yes" ] || [ $gitAns == "y" ]  || [ $gitAns == "Yes" ]
   then
       #do git stuff
-    python /Users/pulkitmahajan/Documents/Python/createGitRepo.py $newFolderName
     gitSetup $newFolderName
     echo "Set up git repo"
   fi
@@ -143,6 +147,7 @@ function new_folder () {
 
 function gitSetup () {
   git init
+  hub create $1
   git remote add origin git@github.com:mahahahajan/$1.git
   touch README.md
   git add .
@@ -174,7 +179,7 @@ function create() {
         touch $newFileName
       fi
    else
-    echo "how'd you screwn up your own script u fuck"
+    echo "how'd you screw up your own script u fuck"
     fi
   else
     echo "create new folder?"
@@ -225,4 +230,8 @@ function download() {
     cd /Users/pulkitmahajan/Documents/Videos/DownloadedMP3s
     youtube-dl -o '%(title)s.%(ext)s' -x --embed-thumbnail --audio-format mp3  $url
   fi 
+}
+
+function water_notify(){
+  osascript -e "display notification \"DRINK YOUR WATER\" with title \"Drink Water\""
 }
