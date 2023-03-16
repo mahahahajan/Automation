@@ -1,12 +1,13 @@
 
 from github import Github
+import os
 # Github username
 username = "mahahahajan"
 # pygithub object
 g = Github()
 # get that user by username
 
-f = open("gh_pages_repo.txt", "r+")
+f = open("/Users/pulkitmahajan/Documents/Automation/Commands/gh_pages_repo.txt", "r+")
 f.write("GH Repos with pages \n")
 
 try: 
